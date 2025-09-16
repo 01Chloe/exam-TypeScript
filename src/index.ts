@@ -1,6 +1,9 @@
 const select: HTMLSelectElement|null = document.querySelector('#fruitSelect');
 const addBtn: HTMLButtonElement|null = document.querySelector('#addBtn');
 const listContainer: HTMLUListElement|null = document.querySelector('#fruitList');
+const counter: HTMLParagraphElement|null = document.querySelector('#counter');
+
+let count: number = 0;
 
 addBtn?.addEventListener('click', getValue);
 function getValue():void{
@@ -10,4 +13,11 @@ function getValue():void{
         item.textContent = fruit;
     }
     listContainer?.insertAdjacentElement("beforeend", item);
+
+    count++;
+    console.log(count);
+
+    if(counter){
+       counter.textContent = `Total : ${count} fruit(s)`;
+    }
 }
